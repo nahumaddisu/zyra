@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Best Friend Zyra</title>
+    
+    <script >
+document.addEventListener("DOMContentLoaded", function () {
+    const yesBtn = document.querySelector(".yes");
+    const noBtn = document.querySelector(".no");
+    const container = document.querySelector(".container");
+
+    // YES button click -> show message
+    yesBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        container.innerHTML = `
+            <h1>LET'S GOOOO 😂😂😂😂🎉</h1>
+            <p>Officially upgraded to Best Friend Status.</p>
+            <video width="200" controls>
+        <source src="yourvideo.mp4" type="video/mp4">
+    </video>
+        `;
+    });
+
+    // YES button grows 3x when NO clicked
+    noBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        yesBtn.style.transform = "scale(5)";
+        yesBtn.style.transition = "0.1s";
+    });
+    
+    // Move NO button away when cursor is close (50px rule)
+    document.addEventListener("mousemove", function (event) {
+    let rect = noBtn.getBoundingClientRect();
+
+    let centerX = rect.left + rect.width / 2;
+    let centerY = rect.top + rect.height / 2;
+
+    let dx = centerX - event.clientX;
+    let dy = centerY - event.clientY;
+
+    let distance = Math.hypot(dx, dy);
+
+    if (distance < 100) {
+        let moveX = (dx / distance) * 30;
+        let moveY = (dy / distance) * 30;
+
+        noBtn.style.position = "absolute";
+        noBtn.style.left = (rect.left + moveX) + "px";
+        noBtn.style.top = (rect.top + moveY) + "px";
+    }
+        })
+});
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hey Zyra 👀</h1>
+        </header>
+        <main>
+            <p class="message">
+                We've laughed and we continued to have online friendship.
+                So I have one important question...
+            </p>
+            <h2>Will you be my best friend?</h2>
+            <div class="buttons">
+                <a href="#" class="btn yes">YES 😎</a>
+                <a href="#" class="btn no">Umm...maybe?</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Made with courage 💀</p>
+        </footer>
+    </div>
+    <style>
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #04aebadd;
+    color: rgb(12, 12, 12);
+    text-align: center;
+}
+
+/* Main Container */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Headings */
+h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    margin: 25px 0;
+    font-size: 24px;
+}
+
+/* Message */
+.message {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+/* Yes Button */
+.yes {
+    background: #01a532;
+    color: black;
+}
+
+.yes:hover {
+    background: #02db72;
+    transform: scale(1.1);
+}
+
+/* No Button */
+.no {
+    background: #f4022f;
+    color: white;
+}
+
+.no:hover {
+    background: #d63354;
+    transform: scale(1.9);
+}
+
+/* Footer */
+footer {
+    margin-top: 25px;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+    </style>
+    
+</body>
+</html>
